@@ -12,6 +12,10 @@ Just run:
 composer require neosrulez/directmail-formfinisher
 ```
 
+## Usage
+
+Create the finisher, create and configure a form field of the type ``NeosRulez.DirectMail.FormFinisher:RecipientList`` and a checkbox with the identifier ``acceptDirectMail``. The finisher expects a form field with the name ``email``.
+
 ## Author
 
 * E-Mail: mail@patriceckhart.com

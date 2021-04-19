@@ -33,6 +33,8 @@ class AddRecipientFinisher extends AbstractFinisher
         $formRuntime = $this->finisherContext->getFormRuntime();
         $formValues = $formRuntime->getFormState()->getFormValues();
 
+        \Neos\Flow\var_dump($formValues);
+
         $recipient = [];
         foreach ($formValues as $i => $value) {
             $recipient[$i] = $value;
@@ -53,8 +55,13 @@ class AddRecipientFinisher extends AbstractFinisher
         if(!array_key_exists('recipientlist', $recipient)) {
             throw new \Neos\Flow\Exception('Required form field recipientlist is not definied.', 1347145544);
         }
-
-        $this->recipientFactory->createRecipient($recipient);
+        if(array_key_exists('acceptDirectMail', $recipient)) {
+            if($recipient['acceptDirectMail'] == '1') {
+                $this->recipientFactory->createRecipient($recipient);
+            }
+        } else {
+            throw new \Neos\Flow\Exception('Required form field acceptDirectMail is not definied.', 1347145544);
+        }
     }
 
 }
