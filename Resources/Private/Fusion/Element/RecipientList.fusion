@@ -1,0 +1,9 @@
+prototype(NeosRulez.DirectMail.FormFinisher:RecipientList.Definition) < prototype(Neos.Form.Builder:FormElement.Definition) {
+    formElementType = 'NeosRulez.DirectMail.FormFinisher:RecipientList'
+    properties {
+        placeholder = ${null}
+        recipientLists = NeosRulez.DirectMail:Class.RecipientList
+        userSelect = ${null}
+        recipientList = ${null}
+    }
+}

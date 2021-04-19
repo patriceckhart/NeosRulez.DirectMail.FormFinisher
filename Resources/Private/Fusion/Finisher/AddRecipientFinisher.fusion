@@ -1,0 +1,3 @@
+prototype(NeosRulez.DirectMail.FormFinisher:AddRecipientFinisher.Definition) < prototype(Neos.Form.Builder:Finisher.Definition) {
+    formElementType = 'NeosRulez.DirectMail.FormFinisher:AddRecipientFinisher'
+}

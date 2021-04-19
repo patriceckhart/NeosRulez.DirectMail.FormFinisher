@@ -1,0 +1,10 @@
+'NeosRulez.DirectMail.FormFinisher:AddRecipientFinisher':
+  superTypes:
+    'Neos.Form.Builder:AbstractFinisher': true
+  ui:
+    label: Add newsletter recipient
+    icon: far fa-paper-plane
+    inspector:
+      groups:
+        finisher:
+          icon: far fa-paper-plane

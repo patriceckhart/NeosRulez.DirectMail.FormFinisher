@@ -1,0 +1,38 @@
+Neos:
+  Neos:
+    fusion:
+      autoInclude:
+        NeosRulez.DirectMail.FormFinisher: true
+    nodeTypes:
+      groups:
+        directMailFormFinisher:
+          position: 'end'
+          label: DirectMail
+  Form:
+    presets:
+      default:
+        formElementTypes:
+          'NeosRulez.DirectMail.FormFinisher:RecipientList':
+            renderingOptions:
+              templatePathPattern: 'resource://NeosRulez.DirectMail.FormFinisher/Private/Templates/Form/{@type}.html'
+            superTypes:
+              'Neos.Form:FormElement': true
+            properties:
+              elementClassAttribute: form-control
+        finisherPresets:
+          'NeosRulez.DirectMail.FormFinisher:AddRecipientFinisher':
+            implementationClassName: NeosRulez\DirectMail\FormFinisher\Finishers\AddRecipientFinisher
+            options: { }
+      bootstrap:
+        formElementTypes:
+          'NeosRulez.DirectMail.FormFinisher:RecipientList':
+            renderingOptions:
+              templatePathPattern: 'resource://NeosRulez.DirectMail.FormFinisher/Private/Templates/Form/{@type}.html'
+            superTypes:
+              'Neos.Form:FormElement': true
+            properties:
+              elementClassAttribute: form-control
+        finisherPresets:
+          'NeosRulez.DirectMail.FormFinisher:AddRecipientFinisher':
+            implementationClassName: NeosRulez\DirectMail\FormFinisher\Finishers\AddRecipientFinisher
+            options: { }

@@ -1,0 +1,19 @@
+{
+    "description": "Form finisher to add recipients with Neos.Form",
+    "type": "neos-package",
+    "name": "neosrulez/directmail-formfinisher",
+    "require": {
+        "neosrulez/directmail": "*",
+        "neos/form": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "NeosRulez\\DirectMail\\FormFinisher\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "NeosRulez.DirectMail.FormFinisher"
+        }
+    }
+}

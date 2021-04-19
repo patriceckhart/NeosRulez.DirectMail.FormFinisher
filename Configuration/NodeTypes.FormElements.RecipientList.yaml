@@ -1,0 +1,37 @@
+'NeosRulez.DirectMail.FormFinisher:RecipientList':
+  superTypes:
+    'Neos.Form.Builder:FormElement': true
+  ui:
+    label: Newsletter recipient list
+    icon: fas fa-list-alt
+    group: directMailFormFinisher
+    inspector:
+      groups:
+        formElement:
+          icon: fas fa-list-alt
+    position: end
+  properties:
+    userSelect:
+      type: boolean
+      ui:
+        label: User select
+        reloadIfChanged: true
+        inspector:
+          group: formElement
+    recipientList:
+      defaultValue: ''
+      type: string
+      ui:
+        label: Recipient list
+        reloadIfChanged: true
+        inspector:
+          hidden: 'ClientEval:node.properties.userSelect ? true : false'
+          group: formElement
+          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            dataSourceIdentifier: neosrulez-directmail-recipientlist
+    identifier:
+      defaultValue: recipientlist
+      ui:
+        inspector:
+          group: ~
