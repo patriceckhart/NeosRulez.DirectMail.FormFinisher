@@ -33,8 +33,6 @@ class AddRecipientFinisher extends AbstractFinisher
         $formRuntime = $this->finisherContext->getFormRuntime();
         $formValues = $formRuntime->getFormState()->getFormValues();
 
-        \Neos\Flow\var_dump($formValues);
-
         $recipient = [];
         foreach ($formValues as $i => $value) {
             $recipient[$i] = $value;
