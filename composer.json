@@ -1,5 +1,5 @@
 {
-    "description": "Form finisher to add recipients with Neos.Form",
+    "description": "Form finisher to add recipients with Neos.Form.",
     "type": "neos-package",
     "name": "neosrulez/directmail-formfinisher",
     "require": {
