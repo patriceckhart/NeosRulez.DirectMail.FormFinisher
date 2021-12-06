@@ -41,7 +41,7 @@ class AddRecipientFinisher extends AbstractFinisher
         if(!array_key_exists('firstname', $recipient)) {
             $recipient['firstname'] = '';
         }
-        if(!array_key_exists('firstname', $recipient)) {
+        if(!array_key_exists('lastname', $recipient)) {
             $recipient['lastname'] = '';
         }
         if(!array_key_exists('gender', $recipient)) {
