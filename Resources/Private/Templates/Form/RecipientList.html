@@ -11,4 +11,15 @@
             <f:form.hidden property="{element.identifier}" id="{element.uniqueIdentifier}" value="{element.properties.recipientList}" />
         </f:else>
     </f:if>
+	<f:if condition="{element.properties.inBackend}">
+		<code>
+			<strong>You need the following properties (IDs) in your form:</strong>
+			<ul>
+				<li><strong>firstname</strong> (maybe a single text input)</li>
+				<li><strong>lastname</strong> (maybe a single text input)</li>
+				<li><strong>email</strong> (maybe a single text input</li>
+				<li><strong>acceptDirectMail</strong> (maybe a checkbox)</li>
+			</ul>
+		</code>
+	</f:if>
 </f:section>
