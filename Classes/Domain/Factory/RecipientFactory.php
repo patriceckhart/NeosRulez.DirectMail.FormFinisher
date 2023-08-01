@@ -36,9 +36,10 @@ class RecipientFactory {
 
     /**
      * @param array $recipient
+     * @param bool $doubleOptIn
      * @return void
      */
-    public function createRecipient(array $recipient):void
+    public function createRecipient(array $recipient, bool $doubleOptIn):void
     {
         $newRecipient = new \NeosRulez\DirectMail\Domain\Model\Recipient();
         $newRecipient->setGender($recipient['gender']);
@@ -66,10 +67,16 @@ class RecipientFactory {
             $this->recipientRepository->update($existingRecipient);
         } else {
             $newRecipient->setRecipientlist([$this->recipientListRepository->findRecipientListByIdentifier($recipient['recipientlist'])]);
-            $newRecipient->setActive(false);
+            if($doubleOptIn) {
+                $newRecipient->setActive(false);
+            } else {
+                $newRecipient->setActive(true);
+            }
             $this->recipientRepository->add($newRecipient);
             $recipient['identifier'] = $this->persistenceManager->getIdentifierByObject($newRecipient);
-            $this->sendMail($recipient);
+            if($doubleOptIn) {
+                $this->sendMail($recipient);
+            }
         }
     }
 

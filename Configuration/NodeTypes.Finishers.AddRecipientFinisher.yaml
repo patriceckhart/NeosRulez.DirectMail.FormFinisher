@@ -8,3 +8,12 @@
       groups:
         finisher:
           icon: far fa-paper-plane
+  properties:
+    doubleOptIn:
+      type: boolean
+      defaultValue: true
+      ui:
+        label: Double Opt-In
+        inspector:
+          group: finisher
+          position: 1

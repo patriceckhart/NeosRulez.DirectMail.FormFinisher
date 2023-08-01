@@ -33,6 +33,18 @@ class AddRecipientFinisher extends AbstractFinisher
         $formRuntime = $this->finisherContext->getFormRuntime();
         $formValues = $formRuntime->getFormState()->getFormValues();
 
+        $doubleOptIn = true;
+        $finishers = $formRuntime->getFormDefinition()->getFinishers();
+        foreach ($finishers as $finisher) {
+            $options = $finisher->options;
+            if(array_key_exists('doubleOptIn', $options)) {
+                if($options['doubleOptIn'] === false) {
+                    $doubleOptIn = false;
+                }
+            }
+
+        }
+
         $recipient = [];
         foreach ($formValues as $i => $value) {
             $recipient[$i] = $value;
@@ -55,7 +67,7 @@ class AddRecipientFinisher extends AbstractFinisher
         }
         if(array_key_exists('acceptDirectMail', $recipient)) {
             if($recipient['acceptDirectMail'] == '1') {
-                $this->recipientFactory->createRecipient($recipient);
+                $this->recipientFactory->createRecipient($recipient, $doubleOptIn);
             }
         } else {
             throw new \Neos\Flow\Exception('Required form field acceptDirectMail is not definied.', 1347145544);
